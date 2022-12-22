@@ -21,7 +21,7 @@ Y = dataset.iloc[:,-1].values
 #split the dataset into train and test
 from sklearn.model_selection import train_test_split
 
-X_train , X_test , Y_train , Y_test = train_test_split(X , Y, test_size = 0.25,random_state=1)
+X_train , X_test , Y_train , Y_test = train_test_split(X , Y, test_size = 0.30,random_state=1)
 
 
 #data standardization 
@@ -37,7 +37,6 @@ classifier = SVC( kernel = 'rbf' , random_state = 0)
 
 classifier.fit(X_train , Y_train)
 Y_pred =(classifier.predict(X_test))
-YPred = classifier
 
 print(np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test),1)),1)) #concatenating predicted and actual values
 
